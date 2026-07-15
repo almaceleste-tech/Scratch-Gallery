@@ -1,0 +1,303 @@
+proyecto2.html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scratch Gallery</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            width:100%;
+            height:100vh;
+
+             background-image: url(fondoglobant.jpeg);
+                background-size: cover;
+                background-position:center ;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+
+            overflow:hidden;
+
+            font-family:Arial, sans-serif;
+
+        }
+
+        #inicio{
+
+            width:100%;
+            height:100vh;
+
+            display:flex;
+
+            justify-content:center;
+            align-items:center;
+
+        }
+
+        #logoGlobant{
+
+            width:420px;
+
+            cursor:pointer;
+
+            animation:latido 2s infinite;
+
+            transition:0.3s;
+        }
+
+.oculto{
+    opacity:0;
+    transition:0.5s;
+}
+
+#inicio{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+
+#textoGlobant{
+
+
+    width:330px;
+
+    height:auto;
+
+}
+
+#galeria{
+    display:none;
+    width:100%;
+    min-height:100vh;
+    padding:40px;
+}
+
+.contenedor{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:220px;
+    background:#30ec40;
+    border-radius:15px;
+    padding:15px;
+    text-align:center;
+
+    opacity:0;
+    transform:translateY(30px);
+
+    transition:0.6s;
+}
+
+.card img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.card.mostrar{
+    opacity:1;
+    transform:translateY(0);
+}
+
+header{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-bottom:40px;
+}
+
+h1{
+    font-family:"Luckiest Guy", sans-serif;
+    font-size:100px;
+     color: #4f0764;
+            text-shadow:
+            2px 2px 0 #8c39b3,
+             4px 4px 0 #4a0d63,
+             6px 6px 0 #5a076e,
+             8px 8px 10px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    background-color: #1c8b1c; /* Color de fondo */
+    color: white;              /* Color del texto */
+    border: none;              /* Quita el borde */
+    padding: 10px 20px;        /* Tamaño del botón */
+    border-radius: 10px;       /* Esquinas redondeadas */
+    cursor: pointer;           /* Cambia el cursor */}
+
+.oculto{
+
+    opacity:0;
+
+    transition:0.5s;
+
+}
+
+
+
+        
+
+        @keyframes latido{
+
+            0%{
+
+                transform:scale(1);
+
+            }
+
+            50%{
+
+                transform:scale(1.08);
+
+            }
+
+            100%{
+
+                transform:scale(1);
+
+            }
+
+        }
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="inicio">
+
+        <img src="globantletra.png" id="logoGlobant">
+
+    </div>
+
+    <!-- Galería -->
+    <div id="galeria" style="display:none;">
+
+        <header>
+            <h1>ScratchGallery</h1>
+        </header>
+
+        <section class="contenedor">
+
+            <div class="card">
+                <img src="Portero.jpeg">
+                <h2>Penales</h2>
+                <p>Intenta convertir 5 goles.</p>
+
+                <a href="https://scratch.mit.edu/projects/1320790915" target="_blank">
+                    <button>Jugar</button>
+                </a>
+
+                <a href="https://scratch.mit.edu/projects/1320790915/editor/" target="_blank">
+                    <button>Ver Codigo</button>
+           
+                </a>
+
+            </div>
+
+            <div class="card">
+                <img src="Arkanoid.jpeg">
+                <h2>Arkanoid</h2>
+                <p>Intenta romper los bloques.</p>
+
+                <a href="https://scratch.mit.edu/projects/1322289006" target="_blank">
+                    <button>Jugar</button>
+                </a>
+
+                <a href="https://scratch.mit.edu/projects/1322289006/editor/" target="_blank">
+                     <button>Ver Codigo</button>
+
+                </a>
+
+            </div>
+            <div class="card">
+    <img src="Atrapapelota.PNG">
+    <h2>Pelota</h2>
+    <p>Atrapa la pelota</p>
+    <a href="https://scratch.mit.edu/projects/1352725742/" target="_blank">
+        <button>Jugar</button>
+    </a>
+
+    <a href="https://scratch.mit.edu/projects/1352725742/editor/" target="_blanck">
+         <button>Ver Codigo</button>
+
+    </a>
+</div>
+
+            </div>
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+
+    </div>
+
+
+    </div>
+
+<script>
+
+const logo = document.getElementById("logoGlobant");
+const inicio = document.getElementById("inicio");
+const galeria = document.getElementById("galeria");
+
+logo.addEventListener("click", function(){
+
+    inicio.style.display = "none";
+    galeria.style.display = "block";
+
+        const tarjetas = document.querySelectorAll(".card");
+
+    tarjetas.forEach((tarjeta, indice) => {
+
+        setTimeout(() => {
+            tarjeta.classList.add("mostrar");
+        }, indice * 500);
+
+    });
+
+});
+
+</script>
+
+
+
+</html>
